@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import UploadForm from './components/UploadForm';
 import SearchInterface from './components/SearchInterface';
 import GraphViewer from './components/GraphViewer';
+import LoadingScreen from './components/LoadingScreen';
 import axios from 'axios';
+import './styles.css';
 
 const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:8000';
 
@@ -41,6 +43,7 @@ export default function App() {
 
   return (
     <div className="app-root">
+      {loading && <LoadingScreen />}
       <header className="app-header">
         <h1>Research Knowledge Graph</h1>
         {error && <div className="error-message">{error}</div>}
